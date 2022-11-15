@@ -1,6 +1,6 @@
-# Keycloak custom login
+# Keycloak B2B Theme
 
-Generates a custom keycloak theme based on <https://github.com/InseeFrLab/keycloakify>
+Custom keycloak theme based on <https://github.com/InseeFrLab/keycloakify>
 
 ## Running locally
 
@@ -20,3 +20,15 @@ and run
 npm install
 npm start
 ```
+
+## Extra pages
+
+### Mfa validation
+
+> Name: "mfa-validation"
+>
+> Fields: "mfaCode"
+
+### Mfa validation error
+
+> Name: "mfa-validation-error"
