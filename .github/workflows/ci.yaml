@@ -18,8 +18,7 @@ jobs:
       with:
         node-version: '14'
     - uses: bahmutov/npm-install@v1
-    - run: yarn build
-    - run: npx build-keycloak-theme
+    - run: npm run keycloak
     - uses: actions/upload-artifact@v2
       with:
         name: keycloak_b2b_theme
