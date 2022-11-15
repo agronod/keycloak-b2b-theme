@@ -67,6 +67,7 @@ export const useExtraCss = (
 
       cleanups.forEach((f) => f());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return isExtraCssLoaded;
