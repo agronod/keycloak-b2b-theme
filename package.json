@@ -15,7 +15,9 @@
   "keycloakify": {
     "extraPages": [
       "my-extra-page-1.ftl",
-      "my-extra-page-2.ftl"
+      "my-extra-page-2.ftl",
+      "mfa-validation.ftl",
+      "mfa-validation-error.ftl"
     ]
   },
   "keywords": [],
