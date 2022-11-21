@@ -32,22 +32,22 @@ const MfaValidation = memo(
             className={clsx(
               props.kcFormGroupClass,
               messagesPerField.printIfExists(
-                "mfaCode",
+                "code",
                 props.kcFormGroupErrorClass
               )
             )}
           >
             <div className={clsx(props.kcLabelWrapperClass)}>
-              <label htmlFor="mfaCode" className={clsx(props.kcLabelClass)}>
+              <label htmlFor="user.attributes.code" className={clsx(props.kcLabelClass)}>
                 {msg("mfaCode")}
               </label>
             </div>
             <div className={clsx(props.kcInputWrapperClass)}>
               <input
                 type="text"
-                id="mfaCode"
+                id="user.attributes.code"
                 className={clsx(props.kcInputClass)}
-                name="mfaCode"
+                name="user.attributes.code"
               />
             </div>
           </div>

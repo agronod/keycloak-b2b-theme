@@ -33,7 +33,7 @@ const MfaValidationError = memo(
               htmlFor="mfaValidationError"
               className={clsx(props.kcLabelClass)}
             >
-              {msg("mfaValidationError")}
+              {kcContext.message?.summary}
             </label>
           </div>
 
