@@ -74,7 +74,7 @@ export const Login = memo(
               )}
             >
               <header className="login__header">
-                <h1>Logga in</h1>
+                <h1>{msgStr("loginTitle")}</h1>
               </header>
 
               {social.providers !== undefined && (

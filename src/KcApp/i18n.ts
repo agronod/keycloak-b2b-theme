@@ -21,6 +21,7 @@ export function useI18n(props: Props) {
         mfaValidationSubtitle:
           "A verification code has been sent to your email address. If you don't find it in your inbox, it may have ended up in your spam folder.",
         backToLogin: "Back to login",
+        loginTitle: "Log in",
       },
       fr: {
         /* spell-checker: disable */
@@ -35,6 +36,7 @@ export function useI18n(props: Props) {
         mfaValidationSubtitle:
           "Un code de vérification a été envoyé à votre adresse e-mail. Si vous ne le trouvez pas dans votre boîte de réception, il peut se trouver dans vos courriers indésirables.",
         backToLogin: "Retour à la connexion",
+        loginTitle: "Connexion",
         /* spell-checker: enable */
       },
       sv: {
@@ -49,6 +51,7 @@ export function useI18n(props: Props) {
         mfaValidationSubtitle:
           "En verifieringskod har skickats till din e-postadress. Hittar du den inte i inkorgen kan den ha hamnat som skräppost.",
         backToLogin: "Tillbaka till inloggning",
+        loginTitle: "Logga in",
       },
     },
   });
