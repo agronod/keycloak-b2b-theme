@@ -65,39 +65,37 @@ const MfaValidation = memo(
                   className={clsx(props.kcInputClass)}
                   name="user.attributes.code"
                   placeholder={msgStr("mfaCode")}
+                  style={{ width: "410px" }}
                 />
               </div>
             </div>
 
-            <div className={clsx(props.kcFormGroupClass)}>
-              <div
-                id="kc-form-buttons"
-                style={{ display: "flex", justifyContent: "space-evenly" }}
-              >
-                <div style={{ paddingRight: "15px" }}>
-                  <input
-                    className={clsx(props.kcButtonClass)}
-                    type="button"
-                    value={msgStr("backToLogin")}
-                    style={{ width: "200px", paddingRight: "20px" }}
-                    onClick={() => {
-                      window.location.replace(url.loginUrl);
-                    }}
-                  />
-                </div>
-                <div>
-                  <input
-                    className={clsx(
-                      props.kcButtonClass,
-                      props.kcButtonPrimaryClass,
-                      props.kcButtonBlockClass,
-                      props.kcButtonLargeClass
-                    )}
-                    type="submit"
-                    value={msgStr("doMfaValidation")}
-                    style={{ width: "200px" }}
-                  />
-                </div>
+            <div
+              id="kc-form-buttons"
+              style={{ display: "flex", justifyContent: "space-evenly" }}
+            >
+              <div style={{ paddingRight: "15px" }}>
+                <a
+                  href={url.loginUrl}
+                  className={clsx(props.kcButtonClass)}
+                  type="button"
+                  style={{ width: "200px", paddingRight: "20px" }}
+                >
+                  {msgStr("backToLogin")}
+                </a>
+              </div>
+              <div>
+                <input
+                  className={clsx(
+                    props.kcButtonClass,
+                    props.kcButtonPrimaryClass,
+                    props.kcButtonBlockClass,
+                    props.kcButtonLargeClass
+                  )}
+                  type="submit"
+                  value={msgStr("doMfaValidation")}
+                  style={{ width: "200px" }}
+                />
               </div>
             </div>
           </form>
