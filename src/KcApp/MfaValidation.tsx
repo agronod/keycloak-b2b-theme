@@ -18,7 +18,7 @@ const MfaValidation = memo(
   }: { kcContext: KcContext_MfaValidation; i18n: I18n } & KcProps) => {
     const { url, messagesPerField } = kcContext;
 
-    const { msg, msgStr } = i18n;
+    const { msgStr } = i18n;
 
     return (
       <Template props={props} url={url}>

@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { StrictMode, lazy, Suspense } from "react";
 import { kcContext } from "./KcApp/kcContext";
-import { defaultKcProps } from "keycloakify";
 
 import "./index.css";
 
