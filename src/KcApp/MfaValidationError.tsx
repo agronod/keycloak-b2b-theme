@@ -44,7 +44,7 @@ const MfaValidationError = memo(
             >
               <div className={clsx(props.kcFormOptionsWrapperClass)}>
                 <span>
-                  <a href={url.loginUrl}>{msg("backToLogin")}</a>
+                  <a href={url.loginRestartFlowUrl}>{msg("backToLogin")}</a>
                 </span>
               </div>
             </div>
