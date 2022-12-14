@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import type { KcContext } from "./kcContext";
 import KcAppBase, { defaultKcProps } from "keycloakify";
 import { useI18n } from "./i18n";
+import { Login } from "./Login";
 
 const Register = lazy(() => import("./Register"));
 const Terms = lazy(() => import("./Terms"));
@@ -16,9 +17,10 @@ export type Props = {
 };
 
 export default function KcApp({ kcContext }: Props) {
-  const i18n = useI18n({ kcContext });
+  const i18n = useI18n({
+    kcContext,
+  });
 
-  //NOTE: Locales not yet downloaded
   if (i18n === null) {
     return null;
   }
@@ -27,13 +29,24 @@ export default function KcApp({ kcContext }: Props) {
     i18n,
     ...defaultKcProps,
     // NOTE: The classes are defined in ./KcApp.css
-    kcHeaderWrapperClass: "my-color my-font",
+    kcFormCardClass: "my-form-card",
+    kcLoginClass: "my-login",
+    kcFormHeaderClass: "",
+    kcFormSocialAccountClass: "my-form-social-account",
+    kcFormSocialAccountContentClass: "my-form-social-account-content",
+    kcFormSocialAccountListClass: "",
+    kcFormSocialAccountListLinkClass: "my-form-social-account-list-link",
+    kcFormOptionsWrapperClass: "my-form-options-wrapper",
+    // kcHeaderWrapperClass: "my-header-wrapper",
+    // kcFormSocialAccountContentClass: "my-form-social-account-content",
   };
 
   return (
     <Suspense>
       {(() => {
         switch (kcContext.pageId) {
+          case "login.ftl":
+            return <Login {...{ kcContext, ...props }} />;
           case "register.ftl":
             return <Register {...{ kcContext, ...props }} />;
           case "terms.ftl":

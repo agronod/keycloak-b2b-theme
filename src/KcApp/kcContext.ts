@@ -14,13 +14,17 @@ export const { kcContext } = getKcContext<
   | { pageId: "register.ftl"; authorizedMailDomains: string[] }
 >({
   // Uncomment to test the login page for development.
-  // mockPageId: "mfa-validation-error.ftl",
+  // mockPageId: "mfa-validation.ftl",
   mockData: [
     {
       pageId: "login.ftl",
+      realm: {
+        password: true,
+        internationalizationEnabled: false,
+      },
       locale: {
         //When we test the login page we do it in french
-        currentLanguageTag: "fr",
+        currentLanguageTag: "sv",
       },
     },
     {
@@ -29,9 +33,15 @@ export const { kcContext } = getKcContext<
     },
     {
       pageId: "mfa-validation.ftl",
+      locale: {
+        currentLanguageTag: "sv",
+      },
     },
     {
       pageId: "mfa-validation-error.ftl",
+      locale: {
+        currentLanguageTag: "sv",
+      },
     },
     {
       pageId: "register.ftl",
@@ -47,7 +57,7 @@ export const { kcContext } = getKcContext<
       //NOTE: You will either use register.ftl (legacy) or register-user-profile.ftl, not both
       pageId: "register-user-profile.ftl",
       locale: {
-        currentLanguageTag: "fr",
+        currentLanguageTag: "sv",
       },
       profile: {
         attributes: [

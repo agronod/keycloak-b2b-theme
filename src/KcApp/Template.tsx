@@ -2,7 +2,7 @@ import { KcContextBase, KcProps } from "keycloakify";
 import { clsx } from "keycloakify/lib/tools/clsx";
 import { useExtraCss } from "./useExtraCss";
 
-const MfaValidation = ({
+const Template = ({
   props,
   url,
   children,
@@ -29,4 +29,4 @@ const MfaValidation = ({
   );
 };
 
-export default MfaValidation;
+export default Template;
