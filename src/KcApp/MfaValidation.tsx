@@ -76,7 +76,7 @@ const MfaValidation = memo(
             >
               <div style={{ paddingRight: "15px" }}>
                 <a
-                  href={url.loginUrl}
+                  href={url.loginRestartFlowUrl}
                   className={clsx(props.kcButtonClass)}
                   type="button"
                   style={{ width: "200px", paddingRight: "20px" }}
