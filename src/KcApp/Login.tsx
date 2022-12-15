@@ -231,7 +231,7 @@ export const Login = memo(
                         </div>
                       )}
                     </div> */}
-                    <div className={clsx(props.kcFormOptionsWrapperClass)}>
+                    {/* <div className={clsx(props.kcFormOptionsWrapperClass)}>
                       {realm.resetPasswordAllowed && (
                         <span>
                           <a tabIndex={5} href={url.loginResetCredentialsUrl}>
@@ -239,7 +239,7 @@ export const Login = memo(
                           </a>
                         </span>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                 </form>
               )}
