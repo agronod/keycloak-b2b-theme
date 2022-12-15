@@ -4,8 +4,6 @@ export const { kcContext } = getKcContext<
   // NOTE: A 'keycloakify' field must be added
   // in the package.json to generate theses pages
   // https://docs.keycloakify.dev/build-options#keycloakify.extrapages
-  | { pageId: "my-extra-page-1.ftl" }
-  | { pageId: "my-extra-page-2.ftl"; someCustomValue: string }
   | { pageId: "mfa-validation.ftl" }
   | { pageId: "mfa-validation-error.ftl" }
   // NOTE: register.ftl is deprecated in favor of register-user-profile.ftl
@@ -26,10 +24,6 @@ export const { kcContext } = getKcContext<
         //When we test the login page we do it in french
         currentLanguageTag: "sv",
       },
-    },
-    {
-      pageId: "my-extra-page-2.ftl",
-      someCustomValue: "foo bar baz",
     },
     {
       pageId: "mfa-validation.ftl",
