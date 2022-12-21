@@ -68,6 +68,14 @@ const MfaValidation = memo(
                   style={{ width: "410px" }}
                 />
               </div>
+              <div className={clsx(props.kcFormGroupErrorClass)}>
+                <label
+                  htmlFor="mfaValidationError"
+                  className={clsx(props.kcInputErrorMessageClass)}
+                >
+                  {kcContext.message?.type == "error" && (kcContext.message?.summary)}
+                </label>
+              </div>
             </div>
 
             <div
@@ -94,13 +102,39 @@ const MfaValidation = memo(
                   )}
                   type="submit"
                   value={msgStr("doMfaValidation")}
+                  name="ValidateCode"
                   style={{ width: "200px" }}
                 />
               </div>
             </div>
+            <div className={clsx(props.kcFormGroupClass)}>
+              <div
+                id="kc-form-options"
+                className={clsx(props.kcFormOptionsClass)}
+                style={{ paddingTop: "20px" }}
+              >
+                <div className={clsx(props.kcFormOptionsWrapperClass)} style={{
+                  fontFamily: 'Inter',
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  fontSize: "14px",
+                  lineHeight: "20px"
+                }}>
+                  <p>{msgStr("mfaVerificationInfoText")}</p>
+                </div>
+                <div className={clsx(props.kcFormOptionsWrapperClass)} style={{ fontFamily: 'Inter', fontStyle: "normal", fontWeight: 500, fontSize: "14px", lineHeight: "16px" }}>
+                  <input
+                    className={"btn-text"}
+                    type="submit"
+                    value={msgStr("mfaVerficationCodeLink")}
+                    name="SendNewCode"
+                  />
+                </div>
+              </div>
+            </div>
           </form>
-        </div>
-      </Template>
+        </div >
+      </Template >
     );
   }
 );

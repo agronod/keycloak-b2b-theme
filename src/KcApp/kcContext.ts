@@ -30,6 +30,10 @@ export const { kcContext } = getKcContext<
       locale: {
         currentLanguageTag: "sv",
       },
+      message: {
+        type: "error",
+        summary: "test",
+      }
     },
     {
       pageId: "mfa-validation-error.ftl",
