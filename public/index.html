@@ -20,6 +20,10 @@
   <link rel="preload" href="%PUBLIC_URL%/fonts/WorkSans/worksans-medium-webfont.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="%PUBLIC_URL%/fonts/WorkSans/worksans-regular-webfont.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="%PUBLIC_URL%/fonts/WorkSans/worksans-semibold-webfont.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="%PUBLIC_URL%/fonts/futura/FuturaPTBook.otf" as="font" crossorigin="anonymous">
+  <link rel="preload" href="%PUBLIC_URL%/fonts/futura/FuturaPTMedium.ttf" as="font" crossorigin="anonymous">
+  <link rel="preload" href="%PUBLIC_URL%/fonts/inter/Inter-Regular.ttf" as="font" crossorigin="anonymous">
+  <link rel="preload" href="%PUBLIC_URL%/fonts/inter/Inter-Medium.ttf" as="font" crossorigin="anonymous">
   <!-- 
   	We need to put it plain in the html because of Keycloakify, in case we decide to remove --external-assets 
   	SEE: https://github.com/InseeFrLab/keycloakify#font-face-importing-fonts-from-thesrc-dir 
@@ -62,6 +66,48 @@
     	font-display: swap;
     	src: url("%PUBLIC_URL%/fonts/WorkSans/worksans-bold-webfont.woff2") format("woff2");
     }
+
+    /* latin */
+    @font-face {
+    	font-family: 'Work Sans';
+    	font-style: normal;
+    	font-weight: bold;
+    	/*700*/
+    	font-display: swap;
+    	src: url("%PUBLIC_URL%/fonts/WorkSans/worksans-bold-webfont.woff2") format("woff2");
+    }    
+
+    /* futura */
+    @font-face {
+    	font-family: 'Futura PT';
+    	font-style: normal;
+    	font-weight: normal;
+    	font-display: swap;
+    	src: url("%PUBLIC_URL%/fonts/futura/FuturaPTBook.otf") format("OpenType");
+    }  
+    @font-face {
+    	font-family: 'Futura PT';
+    	font-style: normal;
+    	font-weight: bold;
+    	font-display: swap;
+    	src: url("%PUBLIC_URL%/fonts/futura/FuturaPTMedium.otf") format("OpenType");
+    }       
+    
+    /* inter */
+    @font-face {
+    	font-family: 'Inter';
+    	font-style: normal;
+    	font-weight: 'normal';
+    	font-display: swap;
+    	src: url("%PUBLIC_URL%/fonts/inter/Inter-Regular.ttf") format("truetype");
+    }  
+    @font-face {
+    	font-family: 'Inter';
+    	font-style: normal;
+    	font-weight: bold;
+    	font-display: swap;
+    	src: url("%PUBLIC_URL%/fonts/inter/Inter-Medium.ttf") format("truetype");
+    }           
   </style>
 
 </head>

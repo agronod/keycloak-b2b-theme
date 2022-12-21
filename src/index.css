@@ -3,6 +3,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+    font-family: 'Inter' !important;    
 }
 input[type=text], input[type=password] {
     border-radius: 3.5px;
@@ -11,14 +12,30 @@ input[type=text], input[type=password] {
     font-size: 16px;
     padding: 15px;
     width: 290px;
+    color: #212121 !important;
+    font-family: 'Inter' !important;
+}
+input[type=text]:hover, input[type=password]:hover {
+    border: 1px solid #616161 !important;
+    box-shadow: none !important;    
+}
+input[type=text]:active, input[type=text]:focus, input[type=text]:focus-visible,
+input[type=password]:active, input[type=password]:focus, input[type=password]:focus-visible {
+    border: 1px solid #59B87F !important;
+    box-shadow: none !important;
+    outline: none !important;    
 }
 h1 {
     font-size: 34px;
     font-weight: 450;
+    font-family: 'Futura PT' !important;
+    color: #212121 !important;
 }
 h2 {
     font-size: 16px;
     font-weight: 400;
+    font-family: 'Futura PT' !important;
+    color: #212121 !important;
 }
 #root {
     display: flex !important;
@@ -27,6 +44,18 @@ h2 {
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-position: center !important;    
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-style: normal !important;
+    color: #9E9E9E !important;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-style: normal !important;
+    color: #9E9E9E !important;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    font-style: normal !important;
+    color: #9E9E9E !important;
 }
 .my-form-options-wrapper {
     text-align: center;
@@ -112,7 +141,9 @@ h2 {
     text-align: start;
 }
 .btn {
-    box-shadow: 0px 0px 2px #BDBDBD !important;
+    /* box-shadow: 0px 0px 2px #BDBDBD !important; */
+    box-shadow: none !important;
+    outline: 1px solid #BDBDBD !important;
     color: #2C7A4D;
     background-color: #fff;
     border: 0;
@@ -125,15 +156,26 @@ h2 {
     display: flex;
     align-items: center;    
     justify-content: center;
+    font-family: 'Inter' !important;
 }
-.btn:hover {
-    /* background-color: #215537 !important; */
-    /* color: #fff !important; */
+.btn:hover, .btn:focus, .btn:hover, .btn:active {
+    color: #215537 !important;
+    /* font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 48px !important;
+    padding: 0px 30px !important;        
+    padding: 0px 30px !important;     */
+
+}
+.btn:focus-visible {
+    color: #215537 !important;
+    outline: 1px solid #BDBDBD !important;
 }
 .btn-primary {
     color: #fff;
-    background-color: #2C7A4D;
+    /* background-color: #2C7A4D; */
     background-image: linear-gradient(to bottom,#2C7A4D 0,#2C7A4D 100%);
+    outline-color: transparent !important;
     border: 0;
     border-radius: 24px;
     cursor: pointer;
@@ -145,7 +187,7 @@ h2 {
     align-items: center;    
     justify-content: center;
 }
-.btn-primary:hover {
+.btn-primary:focus, .btn-primary:hover, .btn-primary:active {
     background-color: #215537 !important;
     color: #fff !important;
 }

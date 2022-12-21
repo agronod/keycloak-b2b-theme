@@ -96,9 +96,7 @@ const MfaValidation = memo(
                 <input
                   className={clsx(
                     props.kcButtonClass,
-                    props.kcButtonPrimaryClass,
-                    props.kcButtonBlockClass,
-                    props.kcButtonLargeClass
+                    props.kcButtonPrimaryClass
                   )}
                   type="submit"
                   value={msgStr("doMfaValidation")}
