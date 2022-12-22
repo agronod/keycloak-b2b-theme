@@ -34,8 +34,9 @@ h1 {
 h2 {
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Futura PT' !important;
+    font-family: 'Inter' !important;
     color: #212121 !important;
+    line-height: 24px;
 }
 #root {
     display: flex !important;
@@ -59,7 +60,12 @@ h2 {
 }
 .my-form-options-wrapper {
     text-align: center;
+
 }
+p {
+    margin: 4px;
+}
+    
 .my-login {
     width: 100%;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
@@ -136,7 +142,7 @@ h2 {
 }
 #kc-form-buttons {
     border-top: none !important;
-    margin-top: 20px !important;
+    margin-top: 16px !important;
     /* border-top: 1px solid #EEE; */
     text-align: start;
 }
