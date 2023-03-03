@@ -7,9 +7,9 @@ import "./index.css";
 const App = lazy(() => import("./App"));
 const KcApp = lazy(() => import("./KcApp"));
 
-if (kcContext !== undefined) {
-  console.log(kcContext);
-}
+// if (kcContext !== undefined) {
+//   console.log(kcContext);
+// }
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
