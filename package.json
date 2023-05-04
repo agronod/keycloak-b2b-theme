@@ -20,15 +20,24 @@
   },
   "keywords": [],
   "dependencies": {
+    "@agronod/mui-components": "^1.4.5-feat-PF-54-add-storybook-components-needed.1",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.8",
+    "evt": "^2.4.1",
     "keycloakify": "^6.8.4",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "evt": "^2.4.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-i18next": "^12.1.5",
+    "react-router-dom": "6.3.0"
   },
   "devDependencies": {
     "@types/node": "^15.3.1",
-    "@types/react": "18.0.9",
-    "@types/react-dom": "18.0.4",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-helmet": "^6.1.6",
     "react-scripts": "5.0.0",
     "typescript": "^4.7.3"
   },
