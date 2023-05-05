@@ -27,3 +27,25 @@ body {
 #kc-form-buttons {
   margin: 0;
 }
+
+#kc-content .alert {
+  border-radius: 20px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#kc-content .alert .pficon {
+  position: unset;
+}
+
+#kc-content .alert.alert-error {
+  border-color: #f7c7d3;
+  background-color: #fcecee;
+}
+
+#kc-content .alert.alert-success {
+  border-color: #cee5cb;
+  background-color: #eaf5ea;
+}

@@ -20,7 +20,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "@agronod/mui-components": "^1.4.5-feat-PF-54-add-storybook-components-needed.1",
+    "@agronod/mui-components": "^1.5.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",

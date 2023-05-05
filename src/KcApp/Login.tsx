@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import { useState, memo, useEffect } from "react";
 import { useConstCallback } from "powerhooks/useConstCallback";
 import type { FormEventHandler } from "react";
 import { KcContextBase, KcProps } from "keycloakify";
@@ -15,7 +15,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React from "react";
 import BaseLayout from "../components/BaseLayout/BaseLayout";
 
 export const Login = memo(
@@ -35,6 +34,7 @@ export const Login = memo(
     } = kcContext;
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const [username, setUsername] = useState("");
 
     const realmPassword = realm.password; // always disable as unable to set from keycloak config
 
@@ -45,7 +45,6 @@ export const Login = memo(
     const onSubmit = useConstCallback<FormEventHandler<HTMLFormElement>>(
       (e) => {
         e.preventDefault();
-
         setIsLoginButtonDisabled(true);
 
         const formElement = e.target as HTMLFormElement;
@@ -59,6 +58,14 @@ export const Login = memo(
         formElement.submit();
       }
     );
+
+    const handleOnChange = (e: any) => setUsername(e.target.value);
+
+    useEffect(() => {
+      if (login.username) {
+        setUsername(login.username);
+      }
+    }, []);
 
     return (
       <BaseLayout>
@@ -159,7 +166,8 @@ export const Login = memo(
                             name={msgStr(label)}
                             id={autoCompleteHelper}
                             type="email"
-                            value={login.username ?? ""}
+                            value={username}
+                            onChange={(e) => handleOnChange(e)}
                             disabled={usernameEditDisabled}
                           />
                         );
