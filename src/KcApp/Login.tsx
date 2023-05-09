@@ -65,7 +65,7 @@ export const Login = memo(
       if (login.username) {
         setUsername(login.username);
       }
-    }, []);
+    }, [login.username]);
 
     return (
       <BaseLayout>
