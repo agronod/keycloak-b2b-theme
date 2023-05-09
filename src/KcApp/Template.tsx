@@ -19,9 +19,7 @@ const Template = ({
         <div
           id="kc-header-wrapper"
           className={clsx(props.kcHeaderWrapperClass)}
-        >
-          {/* {msg("loginTitleHtml", realm.displayNameHtml)} */}
-        </div>
+        ></div>
       </div>
 
       <div className={clsx(props.kcFormCardClass)}>{children}</div>
