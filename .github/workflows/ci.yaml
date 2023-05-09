@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: "18"
       - run: |
-          npm run install
+          npm install
           npm run keycloak
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
