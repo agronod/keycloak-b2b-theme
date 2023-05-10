@@ -33,7 +33,7 @@ export const { kcContext } = getKcContext<
       message: {
         type: "error",
         summary: "test",
-      }
+      },
     },
     {
       pageId: "mfa-validation-error.ftl",

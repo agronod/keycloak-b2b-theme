@@ -1,217 +1,51 @@
-/* Keycloak css */
-html, 
+html,
 body {
-    height: 100%;
-    margin: 0;
-    font-family: 'Inter' !important;    
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
 }
-input[type=text], input[type=password] {
-    border-radius: 3.5px;
-    height: 54px;
-    line-height: 26px;
-    font-size: 16px;
-    padding: 15px;
-    width: 290px;
-    color: #212121 !important;
-    font-family: 'Inter' !important;
-}
-input[type=text]:hover, input[type=password]:hover {
-    border: 1px solid #616161 !important;
-    box-shadow: none !important;    
-}
-input[type=text]:active, input[type=text]:focus, input[type=text]:focus-visible,
-input[type=password]:active, input[type=password]:focus, input[type=password]:focus-visible {
-    border: 1px solid #59B87F !important;
-    box-shadow: none !important;
-    outline: none !important;    
-}
-h1 {
-    font-size: 34px;
-    font-weight: 450;
-    font-family: 'Futura PT' !important;
-    color: #212121 !important;
-}
-h2 {
-    font-size: 16px;
-    font-weight: 400;
-    font-family: 'Inter' !important;
-    color: #212121 !important;
-    line-height: 24px;
-}
+
 #root {
-    display: flex !important;
-    height: 100% !important;
-    background: url(./vall_bakgrund.png) !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    background-position: center !important;    
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100%;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-style: normal !important;
-    color: #9E9E9E !important;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    font-style: normal !important;
-    color: #9E9E9E !important;
-}
-::-ms-input-placeholder { /* Microsoft Edge */
-    font-style: normal !important;
-    color: #9E9E9E !important;
-}
-.my-form-options-wrapper {
-    text-align: center;
 
+#kc-header {
+  display: none;
 }
-p {
-    margin: 4px;
+
+#kc-form .form-group {
+  margin-bottom: 0;
+  margin-top: 0;
 }
-    
-.my-login {
-    width: 100%;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
-    font-size: 16px;    
+
+.form-horizontal .form-group {
+  margin: 0;
 }
-.my-form-card { 
-    background-color: #fff;
-    border-radius: 20px;
-    border: 0;
-    border-top: 1px solid #e9e9e9;
-    box-shadow: 0px 2px 10px 0px rgb(0 0 0 / 10%);
-    grid-column: 3;
-    margin-top: 15vh;
-    padding: 80px clamp(20px, 10vw, 60px) 90px;
-    /* width: 100%; */
-    width: 550px;
-    margin-left: auto;
-    margin-right: auto;    
-}
-.my-form-social-account {
-    margin-top: 32px !important;    
-}
-.my-form-social-account-content {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 390px;
-    /* text-align: center; */
-}
-.my-form-social-account-list-link {
-    padding-top: 16px;
-}
-.my-form-social-account-list-link a {
-    color: #fff;
-    background-color: #2C7A4D;
-    border: 0;
-    border-radius: 24px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 48px;
-    padding: 0px 30px;    
-    display: flex;
-    align-items: center;    
-}
-.my-form-social-account-list-link a:hover {
-    background-color: #215537 !important;
-    color: #fff !important;
-}
-.my-form-social-account-list-link a:visited {
-    color: #fff !important;
-}
-#kc-header-wrapper { display: none; }
-#kc-social-providers {
-    border-left: none !important;
-    align-items: center;
-    display: flex;    
-}
-#kc-form-wrapper {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 390px;
-    text-align: center;
-}
-#kc-page-title { display: none; }
-#kc-form-login {
-    /* margin-top: 10px; */
-    padding-top: 10px;
-    /* border-top: 1px solid #EEE; */
-    text-align: start;
-}
+
 #kc-form-buttons {
-    border-top: none !important;
-    margin-top: 16px !important;
-    /* border-top: 1px solid #EEE; */
-    text-align: start;
-}
-.btn {
-    /* box-shadow: 0px 0px 2px #BDBDBD !important; */
-    box-shadow: none !important;
-    outline: 1px solid #BDBDBD !important;
-    color: #2C7A4D;
-    background-color: #fff;
-    border: 0;
-    border-radius: 24px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 48px;
-    padding: 0px 30px;    
-    display: flex;
-    align-items: center;    
-    justify-content: center;
-    font-family: 'Inter' !important;
-}
-.btn:hover, .btn:focus, .btn:hover, .btn:active {
-    color: #215537 !important;
-    /* font-size: 14px !important;
-    font-weight: 500 !important;
-    line-height: 48px !important;
-    padding: 0px 30px !important;        
-    padding: 0px 30px !important;     */
-
-}
-.btn:focus-visible {
-    color: #215537 !important;
-    outline: 1px solid #BDBDBD !important;
-}
-.btn-primary {
-    color: #fff;
-    /* background-color: #2C7A4D; */
-    background-image: linear-gradient(to bottom,#2C7A4D 0,#2C7A4D 100%);
-    outline-color: transparent !important;
-    border: 0;
-    border-radius: 24px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 48px;
-    padding: 0px 30px;    
-    display: flex;
-    align-items: center;    
-    justify-content: center;
-}
-.btn-primary:focus, .btn-primary:hover, .btn-primary:active {
-    background-color: #215537 !important;
-    color: #fff !important;
+  margin: 0;
 }
 
-/* Custom */
-.agrosfar__logo {
-    margin-bottom: 40px;
-    max-width: 200px;
-    object-fit: contain;
-    width: 100%;
+#kc-content .alert {
+  border-radius: 20px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
-.login__title {
-    font-size: 34px;
-    font-weight: 600;
-    margin: 0 0 16px;
+
+#kc-content .alert .pficon {
+  position: unset;
 }
-.login__description {
-    color: #616161;
-    line-height: 1.4;
-    margin: 0;
+
+#kc-content .alert.alert-error {
+  border-color: #f7c7d3;
+  background-color: #fcecee;
+}
+
+#kc-content .alert.alert-success {
+  border-color: #cee5cb;
+  background-color: #eaf5ea;
 }

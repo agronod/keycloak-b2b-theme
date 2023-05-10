@@ -3,18 +3,18 @@ import { StrictMode, lazy, Suspense } from "react";
 import { kcContext } from "./KcApp/kcContext";
 
 import "./index.css";
+import { ThemeProvider, agronodTheme } from "@agronod/mui-components";
+import React from "react";
 
 const App = lazy(() => import("./App"));
 const KcApp = lazy(() => import("./KcApp"));
 
-// if (kcContext !== undefined) {
-//   console.log(kcContext);
-// }
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Suspense>
-      {kcContext === undefined ? <App /> : <KcApp kcContext={kcContext} />}
+      <ThemeProvider options={agronodTheme}>
+        {kcContext === undefined ? <App /> : <KcApp kcContext={kcContext} />}
+      </ThemeProvider>
     </Suspense>
   </StrictMode>
 );
