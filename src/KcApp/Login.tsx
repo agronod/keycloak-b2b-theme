@@ -16,6 +16,7 @@ import {
   useTheme,
 } from "@mui/material";
 import BaseLayout from "../components/BaseLayout/BaseLayout";
+import React from "react";
 
 export const Login = memo(
   ({
@@ -163,9 +164,12 @@ export const Login = memo(
                           <TextField
                             fullWidth={true}
                             placeholder={msgStr(label)}
-                            name={msgStr(label)}
+                            //NOTE: This is used by Google Chrome auto fill so we use it to tell
+                            //the browser how to pre fill the form but before submit we put it back
+                            //to username because it is what keycloak expects.
+                            name={autoCompleteHelper}
                             id={autoCompleteHelper}
-                            type="email"
+                            type="text"
                             value={username}
                             onChange={(e) => handleOnChange(e)}
                             disabled={usernameEditDisabled}
