@@ -19,6 +19,9 @@ body {
   margin-bottom: 0;
   margin-top: 0;
 }
+#kc-form .form-group .form-control {
+  height: auto;
+}
 
 .form-horizontal .form-group {
   margin: 0;
