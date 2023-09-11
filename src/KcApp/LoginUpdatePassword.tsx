@@ -132,21 +132,6 @@ export const LoginUpdatePassword = memo(
                       {msgStr("continue")}
                     </Button>
                   </div>
-                  <MobileStepper
-                    variant="dots"
-                    steps={2}
-                    position="static"
-                    activeStep={0}
-                    nextButton={null}
-                    backButton={null}
-                    sx={{
-                      backgroundColor: "transparent",
-                      display: "flex",
-                      justifyContent: "center",
-                      boxShadow: "none",
-                      color: "primary",
-                    }}
-                  />
                 </Box>
               </div>
             </div>
