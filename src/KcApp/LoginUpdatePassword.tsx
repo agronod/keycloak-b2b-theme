@@ -8,7 +8,6 @@ import { clsx } from "keycloakify/lib/tools/clsx";
 import {
   Box,
   Button,
-  MobileStepper,
   TextField,
   Typography,
   useMediaQuery,
