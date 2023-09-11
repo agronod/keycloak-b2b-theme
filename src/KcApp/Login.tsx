@@ -227,12 +227,6 @@ export const Login = memo(
                         color: "primary",
                       }}
                     />
-                    <div
-                      className={clsx(
-                        props.kcFormGroupClass,
-                        props.kcFormSettingClass
-                      )}
-                    ></div>
                   </Box>
                 )}
               </div>

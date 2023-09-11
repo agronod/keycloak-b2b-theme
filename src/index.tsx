@@ -1,10 +1,8 @@
+import "./index.css";
 import { createRoot } from "react-dom/client";
 import { StrictMode, lazy, Suspense } from "react";
 import { kcContext } from "./KcApp/kcContext";
-
-import "./index.css";
 import { ThemeProvider, agronodTheme } from "@agronod/mui-components";
-import React from "react";
 
 const App = lazy(() => import("./App"));
 const KcApp = lazy(() => import("./KcApp"));

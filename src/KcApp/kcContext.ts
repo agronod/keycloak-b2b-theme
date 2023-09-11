@@ -12,7 +12,7 @@ export const { kcContext } = getKcContext<
   | { pageId: "register.ftl"; authorizedMailDomains: string[] }
 >({
   // Uncomment to test the login page for development.
-  // mockPageId: "mfa-validation.ftl",
+  mockPageId: "login-update-password.ftl",
   mockData: [
     {
       pageId: "login.ftl",
@@ -24,6 +24,16 @@ export const { kcContext } = getKcContext<
         //When we test the login page we do it in french
         currentLanguageTag: "sv",
       },
+    },
+    {
+      pageId: "login-update-password.ftl",
+      realm: {
+        internationalizationEnabled: false,
+      },
+      locale: {
+        currentLanguageTag: "sv",
+      },
+      message: undefined,
     },
     {
       pageId: "mfa-validation.ftl",
