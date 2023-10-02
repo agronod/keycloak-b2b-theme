@@ -30,6 +30,10 @@ export function useI18n(props: Props) {
           "You must choose your own password to activate your account.",
         mfaVerificationInfoText: "Haven't received a verification code?",
         mfaVerficationCodeLink: "Send a new code",
+        invalidUserMessage: "Invalid username or password.",
+        invalidEmailMessage: "Invalid email address.",
+        updatePasswordMessage:
+          "You need to change your password to activate your account.",
       },
       fr: {
         /* spell-checker: disable */
@@ -53,6 +57,10 @@ export function useI18n(props: Props) {
           "Vous devez choisir votre propre mot de passe pour activer votre compte.",
         mfaVerificationInfoText: "Haven't received a verification code?",
         mfaVerficationCodeLink: "Send a new code",
+        invalidUserMessage: "Nom d'utilisateur ou mot de passe invalide.",
+        invalidEmailMessage: "Adresse e-mail invalide.",
+        updatePasswordMessage:
+          "You need to change your password to activate your account.",
         /* spell-checker: enable */
       },
       sv: {
@@ -76,6 +84,10 @@ export function useI18n(props: Props) {
           "Du måste välja ett eget lösenord för att aktivera ditt konto.",
         mfaVerificationInfoText: "Har du inte fått en verifieringskod?",
         mfaVerficationCodeLink: "Skicka en ny kod",
+        invalidUserMessage: "Ogiltigt användarnamn eller lösenord.",
+        invalidEmailMessage: "Ogiltig e-postadress",
+        updatePasswordMessage:
+          "Du behöver byta ditt lösenord för att aktivera ditt konto.",
       },
     },
   });
