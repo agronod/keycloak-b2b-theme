@@ -23,6 +23,11 @@ npm start
 
 ## Running locally with Docker
 
+Requires 
+    - OpenJDK 17 or higher
+    - maven
+
+
 run `npm run keycloak`
 
 In terminal you will get the following message on how to proceed:
