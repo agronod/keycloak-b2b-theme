@@ -7,29 +7,43 @@ const BaseLayout = (props: any) => {
     <Box
       sx={(theme: Theme) => ({
         display: "grid",
-        minHeight: "100vh",
+        minHeight: "100dvh",
         gridTemplateColumns: "auto minmax(30px, 592px)",
         justifyContent: "stretch",
         [theme.breakpoints.between("sm", "md")]: {
           gridTemplateColumns: "1fr 1fr",
         },
-        [theme.breakpoints.down("sm")]: { display: "block", height: "auto" },
+        [theme.breakpoints.down("sm")]: {
+          display: "block",
+          height: "auto",
+          overflow: "auto",
+        },
       })}
     >
       <AsideLogoSection />
+
       <AsideCard
-        centeredContent={true}
         position="right"
         sx={(theme: Theme) => ({
-          padding: 3,
-          paddingTop: "116px",
+          paddingX: 8,
+          paddingY: 6,
           position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+
           [theme.breakpoints.down("md")]: {
             paddingTop: 8,
+            paddingX: 5,
           },
           [theme.breakpoints.down("sm")]: {
             marginTop: "200px",
-            minHeight: "calc(100vh - 200px)",
+            minHeight: "calc(100dvh - 200px)",
+            display: "flex",
+            paddingX: 4,
+            paddingY: 3,
+            gap: 5,
           },
         })}
       >
