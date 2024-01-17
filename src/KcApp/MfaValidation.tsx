@@ -92,6 +92,7 @@ const MfaValidation = memo(
               >
                 <TextField
                   fullWidth={true}
+                  autoFocus
                   placeholder={msgStr("mfaCode")}
                   name="user.attributes.code"
                   id="user.attributes.code"

@@ -2,7 +2,6 @@ import { useState, memo, useEffect } from "react";
 import { useConstCallback } from "powerhooks/useConstCallback";
 import type { FormEventHandler } from "react";
 import { KcContextBase, KcProps } from "keycloakify";
-// import agrosfarLogo from "../agrosfar-pilot-logo.png";
 import Template from "keycloakify/lib/components/Template";
 import type { I18n } from "./i18n";
 import { clsx } from "keycloakify/lib/tools/clsx";
@@ -27,15 +26,7 @@ export const Login = memo(
     i18n,
     ...props
   }: { kcContext: KcContextBase.Login; i18n: I18n } & KcProps) => {
-    const {
-      social,
-      realm,
-      url,
-      usernameEditDisabled,
-      login,
-      auth,
-      registrationDisabled,
-    } = kcContext;
+    const { social, realm, url, usernameEditDisabled, login, auth } = kcContext;
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const [username, setUsername] = useState("");
@@ -176,6 +167,7 @@ export const Login = memo(
                               //NOTE: This is used by Google Chrome auto fill so we use it to tell
                               //the browser how to pre fill the form but before submit we put it back
                               //to username because it is what keycloak expects.
+                              autoFocus
                               name={autoCompleteHelper}
                               id={autoCompleteHelper}
                               type="text"
