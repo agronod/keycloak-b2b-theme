@@ -1,6 +1,7 @@
 import { KcContextBase, KcProps } from "keycloakify";
 import { clsx } from "keycloakify/lib/tools/clsx";
 import { useExtraCss } from "./useExtraCss";
+import React from "react";
 
 const Template = ({
   props,
@@ -14,6 +15,7 @@ const Template = ({
   useExtraCss(props, url);
 
   return (
+    // TODO: check if we need template
     <div className={clsx(props.kcLoginClass)}>
       <div id="kc-header" className={clsx(props.kcHeaderClass)}>
         <div
