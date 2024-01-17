@@ -51,7 +51,7 @@ const BaseLayout = (props: any) => {
           sx={(theme: Theme) => ({
             display: "grid",
             gap: 3,
-            maxWidth: "400px",
+            maxWidth: "464px",
             width: "100%",
             [theme.breakpoints.down("sm")]: {
               maxWidth: "100%",

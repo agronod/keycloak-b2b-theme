@@ -9,7 +9,10 @@ import { clsx } from "keycloakify/lib/tools/clsx";
 import {
   Box,
   Button,
-  MobileStepper,
+  FormControl,
+  FormLabel,
+  Link,
+  Stack,
   TextField,
   Typography,
   useMediaQuery,
@@ -143,10 +146,7 @@ export const Login = memo(
                       width: "100%",
                     }}
                   >
-                    <Typography
-                      textAlign="center"
-                      variant={isMobile ? "h4" : "h3"}
-                    >
+                    <Typography variant={isMobile ? "h4" : "h3"}>
                       {msgStr("loginTitle")}
                     </Typography>
                     <div className={clsx(props.kcFormGroupClass)}>
@@ -161,23 +161,43 @@ export const Login = memo(
                           label === "usernameOrEmail" ? "username" : label;
 
                         return (
-                          <TextField
-                            fullWidth={true}
-                            placeholder={msgStr(label)}
-                            //NOTE: This is used by Google Chrome auto fill so we use it to tell
-                            //the browser how to pre fill the form but before submit we put it back
-                            //to username because it is what keycloak expects.
-                            name={autoCompleteHelper}
-                            id={autoCompleteHelper}
-                            type="text"
-                            value={username}
-                            onChange={(e) => handleOnChange(e)}
-                            disabled={usernameEditDisabled}
-                          />
+                          <FormControl fullWidth={true}>
+                            <FormLabel>
+                              <Typography
+                                variant="body3"
+                                sx={{ marginBottom: 0.5, display: "block" }}
+                              >
+                                E-postadress
+                              </Typography>
+                            </FormLabel>
+                            <TextField
+                              fullWidth={true}
+                              placeholder={msgStr(label)}
+                              //NOTE: This is used by Google Chrome auto fill so we use it to tell
+                              //the browser how to pre fill the form but before submit we put it back
+                              //to username because it is what keycloak expects.
+                              name={autoCompleteHelper}
+                              id={autoCompleteHelper}
+                              type="text"
+                              value={username}
+                              onChange={(e) => handleOnChange(e)}
+                              disabled={usernameEditDisabled}
+                            />
+                          </FormControl>
                         );
                       })()}
                     </div>
                     <div className={clsx(props.kcFormGroupClass)}>
+                      <FormControl fullWidth={true}>
+                        <FormLabel>
+                          <Typography
+                            variant="body3"
+                            sx={{ marginBottom: 0.5, display: "block" }}
+                          >
+                            Lösenord
+                          </Typography>
+                        </FormLabel>
+                      </FormControl>
                       <TextField
                         fullWidth={true}
                         placeholder={msgStr("password")}
@@ -185,6 +205,33 @@ export const Login = memo(
                         id="password"
                         type="password"
                       />
+                    </div>
+                    <div
+                      className={clsx(
+                        props.kcFormGroupClass,
+                        props.kcFormSettingClass
+                      )}
+                    >
+                      <div className={clsx(props.kcFormOptionsWrapperClass)}>
+                        {realm.resetPasswordAllowed && (
+                          <Stack flexDirection="row" gap={1}>
+                            <Typography
+                              variant="body1"
+                              sx={{
+                                color: `${theme.palette.text.primary} !important`,
+                              }}
+                            >
+                              Glömt lösenordet?
+                            </Typography>
+                            <Link
+                              tabIndex={5}
+                              href={url.loginResetCredentialsUrl}
+                            >
+                              {msg("doForgotPassword")}
+                            </Link>
+                          </Stack>
+                        )}
+                      </div>
                     </div>
                     <div
                       id="kc-form-buttons"
@@ -212,37 +259,10 @@ export const Login = memo(
                         {msgStr("doLogIn")}
                       </Button>
                     </div>
-                    <MobileStepper
-                      variant="dots"
-                      steps={2}
-                      position="static"
-                      activeStep={0}
-                      nextButton={null}
-                      backButton={null}
-                      sx={{
-                        backgroundColor: "transparent",
-                        display: "flex",
-                        justifyContent: "center",
-                        boxShadow: "none",
-                        color: "primary",
-                      }}
-                    />
                   </Box>
                 )}
               </div>
             </div>
-          }
-          infoNode={
-            realmPassword &&
-            realm.registrationAllowed &&
-            !registrationDisabled && (
-              <div id="kc-registration">
-                <span>
-                  {msg("noAccount")}
-                  <a href={url.registrationUrl}>{msg("doRegister")}</a>
-                </span>
-              </div>
-            )
           }
         />
       </BaseLayout>

@@ -69,7 +69,7 @@ export function useI18n(props: Props) {
         mfaValidationError: "Vänligen kontakta din systemadministratör",
         alphanumericalCharsOnly: "Endast alfanumeriska tecken",
         gender: "Kön",
-        doForgotPassword: "Jag har glömt mitt lösenord",
+        doForgotPassword: "Återställ",
         doLogIn: "Nästa",
         continue: "Fortsätt",
         mfaValidationTitle: "Verifiera din e-postadress",
