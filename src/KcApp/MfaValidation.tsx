@@ -3,8 +3,7 @@ import type { KcProps } from "keycloakify";
 import type { KcContext } from "./kcContext";
 import { clsx } from "keycloakify/lib/tools/clsx";
 import type { I18n } from "./i18n";
-import Template from "./Template";
-import BaseLayout from "components/BaseLayout/BaseLayout";
+
 import {
   Box,
   Button,
@@ -16,6 +15,9 @@ import {
   useTheme,
 } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
+import BaseLayout from "../components/BaseLayout/BaseLayout";
+import React from "react";
+import Template from "./Template";
 
 type KcContext_MfaValidation = Extract<
   KcContext,

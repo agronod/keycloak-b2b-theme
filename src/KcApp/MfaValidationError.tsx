@@ -3,6 +3,7 @@ import type { KcProps } from "keycloakify";
 import type { KcContext } from "./kcContext";
 import { clsx } from "keycloakify/lib/tools/clsx";
 import type { I18n } from "./i18n";
+import React from "react";
 import Template from "./Template";
 
 type KcContext_MfaValidationError = Extract<

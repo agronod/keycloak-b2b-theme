@@ -53,11 +53,15 @@ const BaseLayout = (props: any) => {
             gap: 3,
             maxWidth: "464px",
             width: "100%",
+            height: "100%",
+            alignItems: "center",
+            position: "relative",
             [theme.breakpoints.down("sm")]: {
               maxWidth: "100%",
               width: "100%",
               textAlign: "left",
               marginBottom: 5,
+              alignItems: "start",
             },
           })}
         >
