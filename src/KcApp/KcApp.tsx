@@ -5,6 +5,7 @@ import { useI18n } from "./i18n";
 import { Login } from "./Login";
 import { LoginUpdatePassword } from "./LoginUpdatePassword";
 import React from "react";
+import LoginResetPassword from "./LoginResetPassword";
 
 const Register = lazy(() => import("./Register"));
 const Terms = lazy(() => import("./Terms"));
@@ -39,6 +40,8 @@ export default function KcApp({ kcContext }: Props) {
             return <Register {...{ kcContext, ...props }} />;
           case "login-update-password.ftl":
             return <LoginUpdatePassword {...{ kcContext, ...props }} />;
+          case "login-reset-password.ftl":
+            return <LoginResetPassword {...{ kcContext, ...props }} />;
           case "terms.ftl":
             return <Terms {...{ kcContext, ...props }} />;
           case "mfa-validation.ftl":

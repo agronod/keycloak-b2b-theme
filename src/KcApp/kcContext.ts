@@ -12,7 +12,7 @@ export const { kcContext } = getKcContext<
   | { pageId: "register.ftl"; authorizedMailDomains: string[] }
 >({
   // Uncomment to test the login page for development.
-  mockPageId: "login.ftl",
+  mockPageId: "login-update-password.ftl",
   mockData: [
     {
       pageId: "login.ftl",
@@ -24,6 +24,16 @@ export const { kcContext } = getKcContext<
         //When we test the login page we do it in french
         currentLanguageTag: "sv",
       },
+    },
+    {
+      pageId: "login-reset-password.ftl",
+      realm: {
+        internationalizationEnabled: false,
+      },
+      locale: {
+        currentLanguageTag: "sv",
+      },
+      message: undefined,
     },
     {
       pageId: "login-update-password.ftl",
@@ -50,7 +60,12 @@ export const { kcContext } = getKcContext<
       locale: {
         currentLanguageTag: "sv",
       },
+      message: {
+        type: "error",
+        summary: "something went wrong",
+      },
     },
+    // TODO: do we need this pages
     {
       pageId: "register.ftl",
       authorizedMailDomains: [
@@ -61,6 +76,7 @@ export const { kcContext } = getKcContext<
         "hello-world.com",
       ],
     },
+    // TODO: do we need this pages
     {
       //NOTE: You will either use register.ftl (legacy) or register-user-profile.ftl, not both
       pageId: "register-user-profile.ftl",

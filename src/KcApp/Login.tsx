@@ -185,6 +185,7 @@ export const Login = memo(
                         right: 0,
                         [theme.breakpoints.down("sm")]: {
                           position: "relative",
+                          marginTop: `16px !important`,
                         },
                       })}
                     >

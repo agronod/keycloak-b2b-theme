@@ -15,7 +15,6 @@ const Template = ({
   useExtraCss(props, url);
 
   return (
-    // TODO: check if we need template
     <div className={clsx(props.kcLoginClass)}>
       <div id="kc-header" className={clsx(props.kcHeaderClass)}>
         <div

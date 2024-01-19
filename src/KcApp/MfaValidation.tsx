@@ -1,15 +1,13 @@
 import { memo } from "react";
 import type { KcProps } from "keycloakify";
 import type { KcContext } from "./kcContext";
-import { clsx } from "keycloakify/lib/tools/clsx";
 import type { I18n } from "./i18n";
 
 import {
   Box,
   Button,
-  MobileStepper,
+  Stack,
   TextField,
-  Theme,
   Typography,
   useMediaQuery,
   useTheme,
@@ -40,31 +38,29 @@ const MfaValidation = memo(
       <BaseLayout>
         <Button
           href={url.loginRestartFlowUrl}
-          sx={(theme: Theme) => ({
+          sx={{
             position: "absolute",
-            top: "50px",
-            left: "50px",
-
-            [theme.breakpoints.down("md")]: { top: "30px", left: "30px" },
-          })}
+            top: 0,
+            left: 0,
+            // TODO: remove when you update storybook to a new version
+            "&:hover": {
+              color: theme.palette.text.secondary,
+              textDecoration: "underline solid #66646199",
+            },
+            [theme.breakpoints.down("sm")]: {
+              position: "relative",
+              justifySelf: "start",
+            },
+          }}
           startIcon={<ArrowBack />}
         >
-          Tilbaka
+          Tillbaka
         </Button>
         <Template props={props} url={url}>
-          <div
-            id="kc-form-wrapper"
-            className={clsx(
-              false && [
-                props.kcFormSocialAccountContentClass,
-                props.kcFormSocialAccountClass,
-              ]
-            )}
-          >
+          <Box id="kc-form-wrapper">
             <Box
               component="form"
               id="kc-mfa-validation-form"
-              className={clsx(props.kcFormClass)}
               action={url.loginAction}
               method="post"
               sx={{
@@ -73,25 +69,16 @@ const MfaValidation = memo(
                 width: "100%",
               }}
             >
-              <Typography textAlign="center" variant={isMobile ? "h4" : "h3"}>
+              <Typography variant={isMobile ? "h4" : "h3"}>
                 {msgStr("mfaValidationTitle")}
               </Typography>
               <Typography
-                textAlign="center"
                 variant={isMobile ? "body2" : "body1"}
                 color="text.secondary"
               >
                 {msgStr("mfaValidationSubtitle")}
               </Typography>
-              <div
-                className={clsx(
-                  props.kcFormGroupClass,
-                  messagesPerField.printIfExists(
-                    "code",
-                    props.kcFormGroupErrorClass
-                  )
-                )}
-              >
+              <div>
                 <TextField
                   fullWidth={true}
                   autoFocus
@@ -107,59 +94,54 @@ const MfaValidation = memo(
                   }
                 />
               </div>
-              <div id="kc-form-buttons">
-                <Button
-                  variant="contained"
-                  fullWidth={true}
-                  name="ValidateCode"
-                  type="submit"
-                >
-                  {msgStr("doMfaValidation")}
-                </Button>
-              </div>
-              <MobileStepper
-                variant="dots"
-                steps={2}
-                position="static"
-                activeStep={1}
-                nextButton={null}
-                backButton={null}
-                sx={{
-                  backgroundColor: "transparent",
-                  display: "flex",
-                  justifyContent: "center",
-                  boxShadow: "none",
-                  color: "primary",
-                }}
-              />
-              <div className={clsx(props.kcFormGroupClass)}>
-                <div
-                  id="kc-form-options"
-                  className={clsx(props.kcFormOptionsClass)}
-                >
-                  <div className={clsx(props.kcFormOptionsWrapperClass)}>
-                    <Typography
-                      textAlign="center"
-                      variant="body2"
-                      color="text.secondary"
-                    >
-                      {msgStr("mfaVerificationInfoText")}
-                    </Typography>
-                  </div>
-                  <div className={clsx(props.kcFormOptionsWrapperClass)}>
-                    <Button
-                      variant="text"
-                      name="SendNewCode"
-                      type="submit"
-                      fullWidth={true}
-                    >
-                      {msgStr("mfaVerficationCodeLink")}
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <Stack
+                sx={() => ({
+                  alignItems: "center",
+                  gap: 0.5,
+                  position: "absolute",
+                  bottom: "20px",
+                  left: 0,
+                  right: 0,
+                  [theme.breakpoints.down("sm")]: {
+                    position: "relative",
+                    marginTop: `16px !important`,
+                  },
+                })}
+              >
+                <Box id="kc-form-buttons" sx={{ width: "100%" }}>
+                  <Button
+                    variant="contained"
+                    fullWidth={true}
+                    name="ValidateCode"
+                    type="submit"
+                  >
+                    {msgStr("doMfaValidation")}
+                  </Button>
+                </Box>
+
+                <Box id="kc-form-options">
+                  <Typography
+                    textAlign="center"
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ marginTop: 2 }}
+                  >
+                    {msgStr("mfaVerificationInfoText")}
+                  </Typography>
+
+                  <Button
+                    variant="text"
+                    name="SendNewCode"
+                    type="submit"
+                    fullWidth={true}
+                    sx={{ marginTop: 2 }}
+                  >
+                    {msgStr("mfaVerficationCodeLink")}
+                  </Button>
+                </Box>
+              </Stack>
             </Box>
-          </div>
+          </Box>
         </Template>
       </BaseLayout>
     );

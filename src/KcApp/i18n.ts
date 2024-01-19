@@ -75,7 +75,7 @@ export function useI18n(props: Props) {
         mfaValidationTitle: "Verifiera din e-postadress",
         mfaValidationSubtitle:
           "En verifieringskod har skickats till din e-postadress. Hittar du den inte i inkorgen kan den ha hamnat som skräppost.",
-        backToLogin: "Tillbaka till inloggning",
+        backToLogin: "Tillbaka",
         loginTitle: "Logga in",
         choosePassword: "Välj lösenord",
         newPassword: "Nytt lösenord",
