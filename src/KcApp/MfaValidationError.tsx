@@ -21,7 +21,7 @@ const MfaValidationError = memo(
     ...props
   }: { kcContext: KcContext_MfaValidationError; i18n: I18n } & KcProps) => {
     const { url } = kcContext;
-    const { msg } = i18n;
+    // const { msg } = i18n;
 
     return (
       <BaseLayout>

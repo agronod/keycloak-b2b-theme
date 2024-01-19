@@ -95,8 +95,8 @@ const LoginResetPassword = memo(
                     ? "email"
                     : "usernameOrEmail";
 
-                  const autoCompleteHelper: typeof label =
-                    label === "usernameOrEmail" ? "username" : label;
+                  // const autoCompleteHelper: typeof label =
+                  //   label === "usernameOrEmail" ? "username" : label;
 
                   return (
                     <>

@@ -28,7 +28,7 @@ const MfaValidation = memo(
     i18n,
     ...props
   }: { kcContext: KcContext_MfaValidation; i18n: I18n } & KcProps) => {
-    const { url, messagesPerField } = kcContext;
+    const { url } = kcContext;
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
