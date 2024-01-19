@@ -23,10 +23,7 @@ npm start
 
 ## Running locally with Docker
 
-Requires 
-    - OpenJDK 17 or higher
-    - maven
-
+Requires - OpenJDK 17 or higher - maven
 
 run `npm run keycloak`
 
@@ -47,6 +44,11 @@ Once your container is up and running:
 - Go to 👉 https://www.keycloak.org/app/ 👈 Click "Save" then "Sign in". You should see your login page
 
 Video demoing this process: https://youtu.be/N3wlBoH4hKg`
+
+Theme templates: https://github.com/keycloakify/keycloakify
+Npm keycloakify: https://www.npmjs.com/package/keycloakify
+Guide keycloakify: https://docs.keycloakify.dev/v/v6/
+Keycloakify starter page: https://github.com/keycloakify/keycloakify-starter/tree/main
 ```
 
 ## Extra pages
