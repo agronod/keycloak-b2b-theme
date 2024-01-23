@@ -1,6 +1,7 @@
 import { KcContextBase, KcProps } from "keycloakify";
 import { clsx } from "keycloakify/lib/tools/clsx";
 import { useExtraCss } from "./useExtraCss";
+import React from "react";
 
 const Template = ({
   props,
