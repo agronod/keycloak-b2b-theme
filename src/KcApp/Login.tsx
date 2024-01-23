@@ -2,14 +2,16 @@ import { useState, memo, useEffect } from "react";
 import { useConstCallback } from "powerhooks/useConstCallback";
 import type { FormEventHandler } from "react";
 import { KcContextBase, KcProps } from "keycloakify";
-// import agrosfarLogo from "../agrosfar-pilot-logo.png";
 import Template from "keycloakify/lib/components/Template";
 import type { I18n } from "./i18n";
-import { clsx } from "keycloakify/lib/tools/clsx";
+
 import {
   Box,
   Button,
-  MobileStepper,
+  FormControl,
+  FormLabel,
+  Link,
+  Stack,
   TextField,
   Typography,
   useMediaQuery,
@@ -24,15 +26,7 @@ export const Login = memo(
     i18n,
     ...props
   }: { kcContext: KcContextBase.Login; i18n: I18n } & KcProps) => {
-    const {
-      social,
-      realm,
-      url,
-      usernameEditDisabled,
-      login,
-      auth,
-      registrationDisabled,
-    } = kcContext;
+    const { realm, url, usernameEditDisabled, login, auth } = kcContext;
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const [username, setUsername] = useState("");
@@ -72,64 +66,14 @@ export const Login = memo(
       <BaseLayout>
         <Template
           {...{ kcContext, i18n, ...props }}
-          doFetchDefaultThemeResources={true}
-          displayInfo={social.displayInfo && false} // disable manually
-          displayWide={realmPassword && social.providers !== undefined}
-          headerNode={null} // msg("doLogIn")
+          // Set to false so we don't use keycloak styles but our MUI ones
+          doFetchDefaultThemeResources={false}
+          displayInfo={false}
+          displayWide={true}
+          headerNode={null}
           formNode={
-            <div
-              id="kc-form"
-              className={clsx(
-                realmPassword &&
-                  social.providers !== undefined &&
-                  props.kcContentWrapperClass
-              )}
-            >
-              <div
-                id="kc-form-wrapper"
-                className={clsx(
-                  realmPassword &&
-                    social.providers && [
-                      props.kcFormSocialAccountContentClass,
-                      props.kcFormSocialAccountClass,
-                    ]
-                )}
-              >
-                {social.providers !== undefined && (
-                  <div
-                    id="kc-social-providers"
-                    className={clsx(
-                      props.kcFormSocialAccountContentClass,
-                      props.kcFormSocialAccountClass
-                    )}
-                  >
-                    <ul
-                      className={clsx(
-                        props.kcFormSocialAccountListClass,
-                        social.providers.length > 4 &&
-                          props.kcFormSocialAccountDoubleListClass
-                      )}
-                    >
-                      {social.providers.map((p) => (
-                        <li
-                          key={p.providerId}
-                          className={clsx(
-                            props.kcFormSocialAccountListLinkClass
-                          )}
-                        >
-                          <a
-                            href={p.loginUrl}
-                            id={`zocial-${p.alias}`}
-                            className={clsx("zocial", p.providerId)}
-                          >
-                            <span>{p.displayName}</span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
+            <Box id="kc-form">
+              <Box id="kc-form-wrapper">
                 {realmPassword && (
                   <Box
                     component="form"
@@ -143,13 +87,10 @@ export const Login = memo(
                       width: "100%",
                     }}
                   >
-                    <Typography
-                      textAlign="center"
-                      variant={isMobile ? "h4" : "h3"}
-                    >
+                    <Typography variant={isMobile ? "h4" : "h3"}>
                       {msgStr("loginTitle")}
                     </Typography>
-                    <div className={clsx(props.kcFormGroupClass)}>
+                    <FormControl fullWidth={true}>
                       {(() => {
                         const label = !realm.loginWithEmailAllowed
                           ? "username"
@@ -161,23 +102,43 @@ export const Login = memo(
                           label === "usernameOrEmail" ? "username" : label;
 
                         return (
-                          <TextField
-                            fullWidth={true}
-                            placeholder={msgStr(label)}
-                            //NOTE: This is used by Google Chrome auto fill so we use it to tell
-                            //the browser how to pre fill the form but before submit we put it back
-                            //to username because it is what keycloak expects.
-                            name={autoCompleteHelper}
-                            id={autoCompleteHelper}
-                            type="text"
-                            value={username}
-                            onChange={(e) => handleOnChange(e)}
-                            disabled={usernameEditDisabled}
-                          />
+                          <>
+                            <FormLabel>
+                              <Typography
+                                variant="body3"
+                                sx={{ marginBottom: 0.5, display: "block" }}
+                              >
+                                E-postadress
+                              </Typography>
+                            </FormLabel>
+                            <TextField
+                              fullWidth={true}
+                              placeholder={msgStr(label)}
+                              autoFocus
+                              //NOTE: This is used by Google Chrome auto fill so we use it to tell
+                              //the browser how to pre fill the form but before submit we put it back
+                              //to username because it is what keycloak expects.
+                              name={autoCompleteHelper}
+                              id={autoCompleteHelper}
+                              type="text"
+                              value={username}
+                              onChange={(e) => handleOnChange(e)}
+                              disabled={usernameEditDisabled}
+                            />
+                          </>
                         );
                       })()}
-                    </div>
-                    <div className={clsx(props.kcFormGroupClass)}>
+                    </FormControl>
+                    <FormControl fullWidth={true}>
+                      <FormLabel>
+                        <Typography
+                          variant="body3"
+                          sx={{ marginBottom: 0.5, display: "block" }}
+                        >
+                          Lösenord
+                        </Typography>
+                      </FormLabel>
+
                       <TextField
                         fullWidth={true}
                         placeholder={msgStr("password")}
@@ -185,10 +146,48 @@ export const Login = memo(
                         id="password"
                         type="password"
                       />
-                    </div>
-                    <div
+                    </FormControl>
+                    <Box>
+                      {realm.resetPasswordAllowed && (
+                        <Stack flexDirection="row" gap={1}>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              color: `${theme.palette.text.primary} !important`,
+                            }}
+                          >
+                            Glömt lösenordet?
+                          </Typography>
+                          <Link
+                            tabIndex={5}
+                            href={url.loginResetCredentialsUrl}
+                            sx={{
+                              // TODO: remove when you update storybook to a new version
+                              "&:hover": {
+                                color: theme.palette.text.secondary,
+                                textDecoration: "underline solid #66646199",
+                              },
+                            }}
+                          >
+                            {msg("doForgotPassword")}
+                          </Link>
+                        </Stack>
+                      )}
+                    </Box>
+                    <Stack
                       id="kc-form-buttons"
-                      className={clsx(props.kcFormGroupClass)}
+                      sx={() => ({
+                        alignItems: "center",
+                        gap: 0.5,
+                        position: "absolute",
+                        bottom: "20px",
+                        left: 0,
+                        right: 0,
+                        [theme.breakpoints.down("sm")]: {
+                          position: "relative",
+                          marginTop: `16px !important`,
+                        },
+                      })}
                     >
                       <input
                         type="hidden"
@@ -211,38 +210,30 @@ export const Login = memo(
                       >
                         {msgStr("doLogIn")}
                       </Button>
-                    </div>
-                    <MobileStepper
-                      variant="dots"
-                      steps={2}
-                      position="static"
-                      activeStep={0}
-                      nextButton={null}
-                      backButton={null}
-                      sx={{
-                        backgroundColor: "transparent",
-                        display: "flex",
-                        justifyContent: "center",
-                        boxShadow: "none",
-                        color: "primary",
-                      }}
-                    />
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          marginTop: 2,
+                        }}
+                      >
+                        Inget konto?
+                      </Typography>
+                      <Link
+                        sx={{
+                          // TODO: remove when you update storybook to a new version
+                          "&:hover": {
+                            color: theme.palette.text.secondary,
+                            textDecoration: "underline solid #66646199",
+                          },
+                        }}
+                      >
+                        Kontakta oss
+                      </Link>
+                    </Stack>
                   </Box>
                 )}
-              </div>
-            </div>
-          }
-          infoNode={
-            realmPassword &&
-            realm.registrationAllowed &&
-            !registrationDisabled && (
-              <div id="kc-registration">
-                <span>
-                  {msg("noAccount")}
-                  <a href={url.registrationUrl}>{msg("doRegister")}</a>
-                </span>
-              </div>
-            )
+              </Box>
+            </Box>
           }
         />
       </BaseLayout>
