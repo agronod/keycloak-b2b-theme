@@ -8,6 +8,8 @@ import { clsx } from "keycloakify/lib/tools/clsx";
 import {
   Box,
   Button,
+  FormControl,
+  FormLabel,
   TextField,
   Typography,
   useMediaQuery,
@@ -44,13 +46,13 @@ export const LoginUpdatePassword = memo(
       <BaseLayout>
         <Template
           {...{ kcContext, i18n, ...props }}
-          doFetchDefaultThemeResources={true}
+          doFetchDefaultThemeResources={false}
           displayInfo={false}
           displayWide={true}
           headerNode={null}
           formNode={
-            <div id="kc-form">
-              <div id="kc-form-wrapper">
+            <Box id="kc-form">
+              <Box id="kc-form-wrapper">
                 <Box
                   component="form"
                   id="kc-passwd-update-form"
@@ -63,16 +65,10 @@ export const LoginUpdatePassword = memo(
                     width: "100%",
                   }}
                 >
-                  <Typography
-                    textAlign="center"
-                    variant={isMobile ? "h4" : "h3"}
-                  >
+                  <Typography variant={isMobile ? "h4" : "h3"}>
                     {msgStr("choosePassword")}
                   </Typography>
-                  <Typography
-                    textAlign="center"
-                    variant={isMobile ? "body2" : "body1"}
-                  >
+                  <Typography variant={isMobile ? "body2" : "body1"}>
                     {msgStr("choosePasswordInfo")}
                   </Typography>
                   <input
@@ -92,7 +88,15 @@ export const LoginUpdatePassword = memo(
                     style={{ display: "none" }}
                   />
 
-                  <div className={clsx(props.kcFormGroupClass)}>
+                  <FormControl fullWidth={true}>
+                    <FormLabel>
+                      <Typography
+                        variant="body3"
+                        sx={{ marginBottom: 0.5, display: "block" }}
+                      >
+                        Nytt lösenord
+                      </Typography>
+                    </FormLabel>
                     <TextField
                       fullWidth={true}
                       placeholder={msgStr("newPassword")}
@@ -103,8 +107,16 @@ export const LoginUpdatePassword = memo(
                       autoComplete="new-password"
                       className={clsx(props.kcInputClass)}
                     />
-                  </div>
-                  <div className={clsx(props.kcFormGroupClass)}>
+                  </FormControl>
+                  <FormControl fullWidth={true}>
+                    <FormLabel>
+                      <Typography
+                        variant="body3"
+                        sx={{ marginBottom: 0.5, display: "block" }}
+                      >
+                        Upprepa nytt lösenord
+                      </Typography>
+                    </FormLabel>
                     <TextField
                       fullWidth={true}
                       placeholder={msgStr("confirmPassword")}
@@ -114,10 +126,21 @@ export const LoginUpdatePassword = memo(
                       autoComplete="new-password"
                       className={clsx(props.kcInputClass)}
                     />
-                  </div>
-                  <div
+                  </FormControl>
+                  <Box
                     id="kc-form-buttons"
-                    className={clsx(props.kcFormGroupClass)}
+                    sx={() => ({
+                      alignItems: "center",
+                      gap: 0.5,
+                      position: "absolute",
+                      bottom: "20px",
+                      left: 0,
+                      right: 0,
+                      [theme.breakpoints.down("sm")]: {
+                        position: "relative",
+                        marginTop: `16px !important`,
+                      },
+                    })}
                   >
                     <Button
                       variant="contained"
@@ -130,10 +153,10 @@ export const LoginUpdatePassword = memo(
                     >
                       {msgStr("continue")}
                     </Button>
-                  </div>
+                  </Box>
                 </Box>
-              </div>
-            </div>
+              </Box>
+            </Box>
           }
         />
       </BaseLayout>
