@@ -210,14 +210,6 @@ export const Login = memo(
                       >
                         {msgStr("doLogIn")}
                       </Button>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          marginTop: 2,
-                        }}
-                      >
-                        Inget konto?
-                      </Typography>
                     </Stack>
                   </Box>
                 )}
