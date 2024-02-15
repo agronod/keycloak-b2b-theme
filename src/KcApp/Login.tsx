@@ -218,17 +218,6 @@ export const Login = memo(
                       >
                         Inget konto?
                       </Typography>
-                      <Link
-                        sx={{
-                          // TODO: remove when you update storybook to a new version
-                          "&:hover": {
-                            color: theme.palette.text.secondary,
-                            textDecoration: "underline solid #66646199",
-                          },
-                        }}
-                      >
-                        Kontakta oss
-                      </Link>
                     </Stack>
                   </Box>
                 )}
