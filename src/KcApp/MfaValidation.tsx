@@ -85,7 +85,8 @@ const MfaValidation = memo(
                   placeholder={msgStr("mfaCode")}
                   name="user.attributes.code"
                   id="user.attributes.code"
-                  type="phone"
+                  inputProps={{ inputMode: "numeric" }}
+                  type="text"
                   error={kcContext.message?.type === "error"}
                   helperText={
                     kcContext.message?.type === "error"
