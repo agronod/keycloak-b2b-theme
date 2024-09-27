@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { KcContextBase, KcProps } from "keycloakify";
 import type { I18n } from "./i18n";
-import { TemplateProps } from "keycloakify/lib/components/Template";
-import Template from "keycloakify/lib/components/Template";
+import { TemplateProps } from "keycloakify/lib/KcProps";
+import Template from "keycloakify/lib/Template";
 
 import {
   Box,
@@ -18,12 +18,13 @@ import {
 import React from "react";
 import BaseLayout from "../components/BaseLayout/BaseLayout";
 import { ArrowBack } from "@mui/icons-material";
+import { KcContext } from "./kcContext";
 
 export type LoginResetPasswordProps = KcProps & {
   kcContext: KcContextBase.LoginResetPassword;
   i18n: I18n;
   doFetchDefaultThemeResources?: boolean;
-  Template?: (props: TemplateProps) => JSX.Element | null;
+  Template?: (props: TemplateProps<KcContext, I18n>) => JSX.Element | null;
 };
 
 const LoginResetPassword = memo(
