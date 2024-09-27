@@ -5,7 +5,7 @@
 // See: https://docs.keycloakify.dev/realtime-input-validation
 
 import { memo } from "react";
-import Template from "keycloakify/lib/components/Template";
+import Template from "keycloakify/lib/Template";
 import type { KcProps } from "keycloakify";
 import type { KcContext } from "./kcContext";
 import { clsx } from "keycloakify/lib/tools/clsx";
