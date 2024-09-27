@@ -1,10 +1,10 @@
 import { memo } from "react";
-import Template from "keycloakify/lib/components/Template";
+import Template from "keycloakify/lib/Template";
 import type { KcProps } from "keycloakify";
 import { useDownloadTerms } from "keycloakify";
 import type { KcContext } from "./kcContext";
 import type { I18n } from "./i18n";
-import { evtTermMarkdown } from "keycloakify/lib/components/Terms";
+import { evtTermMarkdown } from "keycloakify/lib/pages/Terms";
 import { useRerenderOnStateChange } from "evt/hooks";
 import tos_en_url from "./tos_en.md";
 import tos_fr_url from "./tos_fr.md";

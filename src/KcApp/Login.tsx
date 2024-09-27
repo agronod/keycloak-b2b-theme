@@ -1,8 +1,8 @@
 import { useState, memo, useEffect } from "react";
-import { useConstCallback } from "powerhooks/useConstCallback";
+import { useConstCallback } from "keycloakify/lib/tools/useConstCallback";
 import type { FormEventHandler } from "react";
 import { KcContextBase, KcProps } from "keycloakify";
-import Template from "keycloakify/lib/components/Template";
+import Template from "keycloakify/lib/Template";
 import type { I18n } from "./i18n";
 
 import {

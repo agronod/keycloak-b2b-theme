@@ -27,7 +27,7 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.8",
     "evt": "^2.4.1",
-    "keycloakify": "^6.8.4",
+    "keycloakify": "^6.13.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
