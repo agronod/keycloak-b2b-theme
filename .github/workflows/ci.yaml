@@ -24,11 +24,11 @@ jobs:
                   yarn run build-keycloak-theme
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - uses: actions/upload-artifact@v2
+            - uses: actions/upload-artifact@v3
               with:
                   name: keycloak_b2b_theme
                   path: build_keycloak/target/*keycloak-theme*.jar
-            - uses: actions/upload-artifact@v2
+            - uses: actions/upload-artifact@v3
               with:
                   name: build
                   path: build
