@@ -1,57 +1,57 @@
 name: ci
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "**/*.md"
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
+    push:
+        branches:
+            - main
+        paths-ignore:
+            - "**/*.md"
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    if: github.event.head_commit.author.name != 'actions'
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.3
-        with:
-          node-version: "18"
-      - run: |
-          npm install
-          npm run keycloak
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@v2
-        with:
-          name: keycloak_b2b_theme
-          path: build_keycloak/target/*keycloak-theme*.jar
-      - uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: build
+    build:
+        runs-on: ubuntu-latest
+        if: github.event.head_commit.author.name != 'actions'
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2.1.3
+              with:
+                  node-version: "18"
+            - run: |
+                  yarn install
+                  yarn run build-keycloak-theme
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: keycloak_b2b_theme
+                  path: build_keycloak/target/*keycloak-theme*.jar
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: build
+                  path: build
 
-  create_github_release:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/download-artifact@v3
-      - run: mkdir jars
-      - run: mv keycloak_b2b_theme/*keycloak-theme*.jar jars/keycloak-b2b-theme.jar
-      - uses: mathieudutour/github-tag-action@v6.0
-        id: tag_version
-        with:
-          # pre_release_branches: develop
-          # append_to_pre_release_tag: prerelease
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
-          files: |
-            jars/keycloak-b2b-theme.jar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    create_github_release:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - uses: actions/download-artifact@v3
+            - run: mkdir jars
+            - run: mv keycloak_b2b_theme/*keycloak-theme*.jar jars/keycloak-b2b-theme.jar
+            - uses: mathieudutour/github-tag-action@v6.0
+              id: tag_version
+              with:
+                  # pre_release_branches: develop
+                  # append_to_pre_release_tag: prerelease
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+            - uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: ${{ steps.tag_version.outputs.new_tag }}
+                  name: Release ${{ steps.tag_version.outputs.new_tag }}
+                  body: ${{ steps.tag_version.outputs.changelog }}
+                  files: |
+                      jars/keycloak-b2b-theme.jar
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
