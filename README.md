@@ -1,65 +1,58 @@
-# Keycloak B2B Theme
+<p align="center">
+    <i>🚀 <a href="https://keycloakify.dev">Keycloakify</a> v11 starter 🚀</i>
+    <br/>
+    <br/>
+</p>
 
-Custom keycloak theme based on <https://github.com/InseeFrLab/keycloakify>
-
-## Running locally
-
-Edit (do not forget to undo before publishing)
-
-```typescript
-import { getKcContext } from "keycloakify";
-
- const { kcContext } = getKcContext({
-+    "mockPageId": "mfa-validation.ftl"
- });
-```
-
-and run
+# Quick start
 
 ```bash
-npm install
-npm start
+git clone https://github.com/keycloakify/keycloakify-starter
+cd keycloakify-starter
+yarn install # Or use an other package manager, just be sure to delete the yarn.lock if you use another package manager.
 ```
 
-## Running locally with Docker
+# Testing the theme locally
 
-Requires - OpenJDK 17 or higher - maven
+[Documentation](https://docs.keycloakify.dev/testing-your-theme)
 
-run `npm run keycloak`
+# How to customize the theme
 
-In terminal you will get the following message on how to proceed:
+[Documentation](https://docs.keycloakify.dev/customization-strategies)
 
-````
-To test your theme locally you can spin up a Keycloak 19.0.1 container image with the theme pre loaded by running:
+# Building the theme
 
-👉 $ ./build_keycloak/start_keycloak_testing_container.sh 👈
+You need to have [Maven](https://maven.apache.org/) installed to build the theme (Maven >= 3.1.1, Java >= 7).  
+The `mvn` command must be in the $PATH.
 
-Test with different Keycloak versions by editing the .sh file. see available versions here: https://quay.io/repository/keycloak/keycloak?tab=tags
+-   On macOS: `brew install maven`
+-   On Debian/Ubuntu: `sudo apt-get install maven`
+-   On Windows: `choco install openjdk` and `choco install maven` (Or download from [here](https://maven.apache.org/download.cgi))
 
-Once your container is up and running:
-- Log into the admin console 👉 http://localhost:8080/admin username: admin, password: admin 👈
-- Create a realm named "myrealm"
-- Create a client with ID: "myclient", "Root URL": "https://www.keycloak.org/app/" and "Valid redirect URIs": "https://www.keycloak.org/app/*"
-- Select Login Theme: agronod-b2b-theme (don't forget to save at the bottom of the page)
-- Go to 👉 https://www.keycloak.org/app/ 👈 Click "Save" then "Sign in". You should see your login page
-
-Video demoing this process: https://youtu.be/N3wlBoH4hKg`
-
-Theme templates: https://github.com/keycloakify/keycloakify
-Npm keycloakify: https://www.npmjs.com/package/keycloakify
-Guide keycloakify: https://docs.keycloakify.dev/v/v6/
-Keycloakify starter page: https://github.com/keycloakify/keycloakify-starter/tree/main
+```bash
+npm run build-keycloak-theme
 ```
 
-## Extra pages
+Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.  
+You can customize this behavior, see documentation [here](https://docs.keycloakify.dev/targeting-specific-keycloak-versions).
 
-### Mfa validation
+# Initializing the account theme
 
-> Name: "mfa-validation"
->
-> Fields: "mfaCode"
+```bash
+npx keycloakify initialize-account-theme
+```
 
-### Mfa validation error
+# Initializing the email theme
 
-> Name: "mfa-validation-error"
-````
+```bash
+npx keycloakify initialize-email-theme
+```
+
+# GitHub Actions
+
+The starter comes with a generic GitHub Actions workflow that builds the theme and publishes
+the jars [as GitHub releases artifacts](https://github.com/keycloakify/keycloakify-starter/releases/tag/v10.0.0).  
+To release a new version **just update the `package.json` version and push**.
+
+To enable the workflow go to your fork of this repository on GitHub then navigate to:
+`Settings` > `Actions` > `Workflow permissions`, select `Read and write permissions`.
