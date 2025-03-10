@@ -4,7 +4,7 @@
     "description": "Starter for Keycloakify 11",
     "repository": {
         "type": "git",
-        "url": "git://github.com/agronod/keycloak-lantbrukare-theme.git"
+        "url": "git://github.com/agronod/keycloak-b2b-theme.git"
     },
     "type": "module",
     "scripts": {
