@@ -37,7 +37,7 @@ jobs:
         runs-on: ubuntu-latest
         needs: build
         steps:
-            - uses: actions/download-artifact@v3
+            - uses: actions/download-artifact@v4
             - run: mkdir jars
             - run: mv keycloak_b2b_theme/*keycloak-theme*.jar jars/keycloak-b2b-theme.jar
             - uses: mathieudutour/github-tag-action@v6.0
