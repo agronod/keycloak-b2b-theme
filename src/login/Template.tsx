@@ -165,7 +165,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                                 </div>
                             )}
                             {displayInfo && (
-                                <Typography variant="body1" color="text.secondary" sx={{ marginBottom: "1.5rem" }}>
+                                <Typography variant={isMobile ? "body2" : "body1"} color="text.secondary" sx={{ marginBottom: "1.5rem" }}>
                                     {infoNode}
                                 </Typography>
                             )}
