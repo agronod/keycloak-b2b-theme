@@ -41,7 +41,7 @@ jobs:
               with:
                   # pre_release_branches: develop
                   # append_to_pre_release_tag: prerelease
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
             - uses: softprops/action-gh-release@v1
               with:
                   tag_name: ${{ steps.tag_version.outputs.new_tag }}
@@ -50,4 +50,4 @@ jobs:
                   files: |
                       jars/*.jar
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
