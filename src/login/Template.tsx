@@ -164,6 +164,11 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                                     />
                                 </div>
                             )}
+                            {displayInfo && (
+                                <Typography variant="body1" color="text.secondary" sx={{ marginBottom: "1.5rem" }}>
+                                    {infoNode}
+                                </Typography>
+                            )}
                             {children}
                             {auth !== undefined && auth.showTryAnotherWayLink && (
                                 <form id="kc-select-try-another-way-form" action={url.loginAction} method="post">
@@ -183,13 +188,6 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                                 </form>
                             )}
                             {socialProvidersNode}
-                            {displayInfo && (
-                                <div id="kc-info" className={kcClsx("kcSignUpClass")}>
-                                    <div id="kc-info-wrapper" className={kcClsx("kcInfoAreaWrapperClass")}>
-                                        {infoNode}
-                                    </div>
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>
