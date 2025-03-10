@@ -26,12 +26,8 @@ jobs:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - uses: actions/upload-artifact@v4
               with:
-                  name: keycloak_b2b_theme
-                  path: build_keycloak/target/*keycloak-theme*.jar
-            - uses: actions/upload-artifact@v4
-              with:
-                  name: build
-                  path: build
+                  name: artifacts
+                  path: dist_keycloak/keycloak-theme*.jar
 
     create_github_release:
         runs-on: ubuntu-latest
@@ -39,7 +35,7 @@ jobs:
         steps:
             - uses: actions/download-artifact@v4
             - run: mkdir jars
-            - run: mv keycloak_b2b_theme/*keycloak-theme*.jar jars/keycloak-b2b-theme.jar
+            - run: mv artifacts/*.jar jars/
             - uses: mathieudutour/github-tag-action@v6.0
               id: tag_version
               with:
@@ -52,6 +48,6 @@ jobs:
                   name: Release ${{ steps.tag_version.outputs.new_tag }}
                   body: ${{ steps.tag_version.outputs.changelog }}
                   files: |
-                      jars/keycloak-b2b-theme.jar
+                      jars/*.jar
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
