@@ -49,5 +49,6 @@ jobs:
                   body: ${{ steps.tag_version.outputs.changelog }}
                   files: |
                       jars/*.jar
+                  prerelease: ${{ github.event_name == 'pull_request' }}
               env:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
