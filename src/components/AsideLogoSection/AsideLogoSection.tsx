@@ -1,7 +1,10 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Logo from "../Logo";
-import AgronodBackgroundDesktop from "../../assets/agronodBackgroundDesktop.png";
-import AgronodYellowBackground from "../../assets/agronodYellowBackground.png";
+import Picture from "../Picture";
+import agronodBackgroundDesktopWebP from "../../assets/agronodBackgroundDesktop.webp";
+import agronodBackgroundDesktopPNG from "../../assets/agronodBackgroundDesktop.png";
+import agronodYellowBackgroundWebP from "../../assets/agronodYellowBackground.webp";
+import agronodYellowBackgroundPNG from "../../assets/agronodYellowBackground.png";
 
 const AsideLogo = () => {
     const theme = useTheme();
@@ -12,20 +15,73 @@ const AsideLogo = () => {
             {!isMobile ? (
                 <Box
                     sx={() => ({
-                        display: "flex",
-                        flexDirection: "column",
                         position: "relative",
-                        backgroundColor: theme.palette.primary.main
+                        backgroundColor: theme.palette.primary.main,
+                        height: "100%",
+                        width: "100%",
+                        overflow: "hidden"
                     })}
                 >
+                    {/* Background landscape image */}
                     <Box
                         sx={theme => ({
+                            position: "absolute",
+                            width: "100%",
+                            height: "60%",
+                            left: "0",
+                            bottom: "0",
+                            overflow: "hidden",
                             backgroundColor: theme.palette.primary.main,
+                            zIndex: 1
+                        })}
+                    >
+                        <Picture
+                            webpSrc={agronodBackgroundDesktopWebP}
+                            fallbackSrc={agronodBackgroundDesktopPNG}
+                            alt="Background"
+                            style={{
+                                position: "absolute",
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover"
+                            }}
+                        />
+                    </Box>
+                    
+                    {/* Yellow overlay with circular cutouts */}
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            width: "100%",
+                            height: "60%",
+                            left: "0",
+                            bottom: "0",
+                            overflow: "hidden",
+                            zIndex: 2
+                        }}
+                    >
+                        <Picture
+                            webpSrc={agronodYellowBackgroundWebP}
+                            fallbackSrc={agronodYellowBackgroundPNG}
+                            alt=""
+                            style={{
+                                position: "absolute",
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "center top",
+                            }}
+                        />
+                    </Box>
+                    
+                    {/* Logo and text content */}
+                    <Box
+                        sx={theme => ({
+                            position: "relative",
+                            zIndex: 3,
                             padding: 6,
-                            height: "40%",
-
                             [theme.breakpoints.down("lg")]: {
-                                height: "70%"
+                                padding: 4
                             }
                         })}
                     >
@@ -44,26 +100,6 @@ const AsideLogo = () => {
                             </Typography>
                         </Box>
                     </Box>
-                    <Box
-                        sx={theme => ({
-                            height: "60%",
-                            width: "100%",
-                            background: `url(${AgronodBackgroundDesktop}) center center no-repeat`,
-                            backgroundSize: "cover",
-                            [theme.breakpoints.down("lg")]: {
-                                height: "30%"
-                            }
-                        })}
-                    >
-                        <Box
-                            sx={{
-                                background: `url(${AgronodYellowBackground}) center center repeat`,
-                                backgroundSize: "contain",
-                                height: "100%",
-                                width: "100%"
-                            }}
-                        ></Box>
-                    </Box>
                 </Box>
             ) : (
                 <Box
@@ -71,20 +107,48 @@ const AsideLogo = () => {
                         backgroundColor: theme.palette.primary.main,
                         display: "flex",
                         flexDirection: "column",
-                        background: `url(${AgronodYellowBackground}) center center repeat , url(${AgronodBackgroundDesktop}) center center no-repeat`,
-                        backgroundSize: "cover, 100% 99%",
                         width: "100%",
                         maxWidth: "100%",
                         textAlign: "left",
                         marginBottom: 5,
                         position: "fixed",
                         top: 0,
-                        backgroundPosition: "center",
                         height: "219px",
-                        padding: 3
+                        padding: 3,
+                        overflow: "hidden"
                     })}
                 >
-                    <Logo size="small" />
+                    <Picture
+                        webpSrc={agronodBackgroundDesktopWebP}
+                        fallbackSrc={agronodBackgroundDesktopPNG}
+                        alt="Background"
+                        style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "99%",
+                            objectFit: "cover",
+                            zIndex: 1
+                        }}
+                    />
+                    <Picture
+                        webpSrc={agronodYellowBackgroundWebP}
+                        fallbackSrc={agronodYellowBackgroundPNG}
+                        alt=""
+                        style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            zIndex: 2
+                        }}
+                    />
+                    <Box sx={{ position: "relative", zIndex: 3 }}>
+                        <Logo size="small" />
+                    </Box>
                 </Box>
             )}
         </>

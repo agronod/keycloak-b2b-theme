@@ -35,6 +35,7 @@ const BaseLayout = (props: { children: JSX.Element }) => {
                         flexDirection: "column",
                         justifyContent: "space-between",
                         alignItems: "flex-start",
+                        zIndex: 10,
 
                         [theme.breakpoints.down("md")]: {
                             paddingTop: 8,
