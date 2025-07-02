@@ -28,8 +28,7 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             mfaVerificationInfoText: "Didn't receive a verification code?",
             mfaVerficationCodeLink: "Resend code",
             // Authentication redirect messages
-            samlPostFormTitle: "Taking you to sign in...",
-            authenticateTitle: "One moment please...",
+            "saml.post-form.title": "Taking you to sign in...",
             pageExpiredTitle: "Session timed out",
             pageExpiredMsg1:
                 "Your session has timed out for security reasons. To start over,",
@@ -61,8 +60,7 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             mfaVerificationInfoText: "Har du inte fått en verifieringskod?",
             mfaVerficationCodeLink: "Skicka ny kod",
             // Authentication redirect messages
-            samlPostFormTitle: "Vi tar dig till inloggningen...",
-            authenticateTitle: "Ett ögonblick...",
+            "saml.post-form.title": "Vi tar dig till inloggningen...",
             pageExpiredTitle: "Sessionen har gått ut",
             pageExpiredMsg1:
                 "Din session har gått ut av säkerhetsskäl. För att börja om,",
