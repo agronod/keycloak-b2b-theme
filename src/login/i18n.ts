@@ -26,7 +26,21 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             mfaCode: "Verification code",
             doMfaValidation: "Log in",
             mfaVerificationInfoText: "Didn't receive a verification code?",
-            mfaVerficationCodeLink: "Resend code"
+            mfaVerficationCodeLink: "Resend code",
+            // Authentication redirect messages
+            samlPostFormTitle: "Taking you to sign in...",
+            authenticateTitle: "One moment please...",
+            pageExpiredTitle: "Session timed out",
+            pageExpiredMsg1:
+                "Your session has timed out for security reasons. To start over,",
+            pageExpiredMsg2: "To continue where you left off,",
+            doClickHere: "click here",
+            // Error messages
+            errorTitle: "Something went wrong",
+            invalidUserMessage:
+                "The email or password doesn't match our records. Please try again.",
+            accountDisabledMessage:
+                "Your account is currently unavailable. Please contact support for assistance."
         },
         // cspell: disable
         sv: {
@@ -45,7 +59,21 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             mfaCode: "Verifieringskod",
             doMfaValidation: "Logga in",
             mfaVerificationInfoText: "Har du inte fått en verifieringskod?",
-            mfaVerficationCodeLink: "Skicka ny kod"
+            mfaVerficationCodeLink: "Skicka ny kod",
+            // Authentication redirect messages
+            samlPostFormTitle: "Vi tar dig till inloggningen...",
+            authenticateTitle: "Ett ögonblick...",
+            pageExpiredTitle: "Sessionen har gått ut",
+            pageExpiredMsg1:
+                "Din session har gått ut av säkerhetsskäl. För att börja om,",
+            pageExpiredMsg2: "För att fortsätta där du slutade,",
+            doClickHere: "klicka här",
+            // Error messages
+            errorTitle: "Något gick fel",
+            invalidUserMessage:
+                "E-postadressen eller lösenordet stämmer inte. Försök igen.",
+            accountDisabledMessage:
+                "Ditt konto är inte tillgängligt just nu. Kontakta supporten för hjälp."
         }
         // cspell: enable
     })
